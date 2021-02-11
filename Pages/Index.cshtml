@@ -9,7 +9,7 @@
     <title>Books</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body style="background-color:black;">
+<body style="background-color:dimgray;">
 
     <!-- Navigation bar code -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
@@ -76,7 +76,7 @@
             </div>
         </div>
     </div>
-    <!-- below mentioned code will create the template to Update a new book -->
+    <!-- below mentioned code will create the template to Update a new  -->
     <div class="modal" tabindex="-1" role="dialog" id="UpdatePatients">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -188,15 +188,15 @@
                             $('#Update_patient_Name').val(response.patient_Name);
                             $('#Update_clinic_name').val(response.clinic_name);
                             $('#Update_appointment_date_time').val(response.appointment_date_time);
-                           
                         });
                     }
-                    // function to update data of the student
+                    // function to update data of the patient//
                     function updatePatient() {
                         var _doctor_Name = $('#Update_doctor_Name').val();
                         var _patient_Name = $('#Update_patient_Name').val();
                         var _clinic_name = $('#Update_clinic_name').val();
-                        var _appointment_date_time = $('#Update_appointment_date_time').val();
+                        var _dateOut =$('#Update_appointment_date_time').val().split("-");
+                        var _appointment_date_time = new Date(_dateOut[2] + "/" + _dateOut[1] + "/" + _dateOut[0]);
                        
                         var PatientUpdate = {
                             id: parseInt($('#Update_id').val()),
@@ -215,14 +215,14 @@
                             $("#update_result").html("Record is updated Successfully");
                             getAllStudents();
                         }).fail(function (jqXHR, textStatus) {
-                            $("#update_result").html("An error occured when updating patientn record.");
+                            $("#update_result").html("An error occured when updating patient record.");
                         });
                     }
 
 
 
                 </script>
-                <!--below mentioned code will create the template on the web page to display all patient-->
+                <!--below mentioned code will create the template on the web page to display all patients-->
                 <script id="PatientsTemplate" type="text/x-jquery-tmpl">
                     <div class="col-lg-3" style="margin:10px;">
                         <div class="card card text-white bg-dark border-warning mb-3" style="width: 18rem; padding:20px">
