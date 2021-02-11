@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Appointment_system_API.Migrations
 {
-    public partial class Database_obj : Migration
+    public partial class Appointment_API : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

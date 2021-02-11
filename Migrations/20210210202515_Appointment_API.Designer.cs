@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Appointment_system_API.Migrations
 {
     [DbContext(typeof(Database))]
-    [Migration("20210203215858_Database_obj")]
-    partial class Database_obj
+    [Migration("20210210202515_Appointment_API")]
+    partial class Appointment_API
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

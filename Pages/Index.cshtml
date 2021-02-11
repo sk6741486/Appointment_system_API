@@ -9,139 +9,236 @@
     <title>Books</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body style="background-color:burlywood;">
+<body style="background-color:black;">
 
-<!-- Navigation bar code -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
-    <a class="navbar-brand" href="#">Appointment</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <button class="btn btn-outline-dark" data-toggle="modal" data-target="#addnewpatient">Add New Patient</button>
-            </li>
-        </ul>
+    <!-- Navigation bar code -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+        <a class="navbar-brand" href="#">Appointment</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <button class="btn btn-outline-dark" data-toggle="modal" data-target="#addnewpatient">Add New Patient</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- following division is creating main area of the web page where all patient data will display -->
+    <div class="container">
+        <div class="row" id="allPatient">
+        </div>
     </div>
-</nav>
 
-<!-- following division is creating main area of the web page where all patient data will display -->
-<div class="container">
-    <div class="row" id="allPatient">
-    </div>
-</div>
-    </div>
-<div class="modal" tabindex="-1" role="dialog" id="addnewpatient">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Add Patient</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="doctor_Name">Doctor Name</label>
-                        <input type="text" class="form-control" id="doctor_Name" aria-describedby="doctor_NameHelp" placeholder="Doctor Name">
+    <div class="modal" tabindex="-1" role="dialog" id="addnewpatient">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Patient</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="doctor_Name">Doctor Name</label>
+                            <input type="text" class="form-control" id="doctor_Name" aria-describedby="Doctor_NameHelp" placeholder="Doctor Name">
 
-                    </div>
-                    <div class="form-group">
-                        <label for="patient_Name">Patient Name</label>
-                        <input type="text" class="form-control" id="patient_Name" aria-describedby="patient_NameHelp" placeholder="Patient Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="patient_Name">Patient Name</label>
+                            <input type="text" class="form-control" id="patient_Name" aria-describedby="Patient_NameHelp" placeholder="Patient Name">
 
-                    </div>
-                    <div class="form-group">
-                        <label for="clinic_name">Clinic name</label>
-                        <input type="text" class="form-control" id="clinic_name" aria-describedby="clinic_nameHelp" placeholder="Clinic Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="appointment_date_time">Appointment Date Time</label>
-                        <input type="date" class="form-control" id="appointment_date_time" aria-describedby="appointment_date_time" placeholder="Appointment Date Time">
-                    </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="clinic_name">Clinic name</label>
+                            <input type="text" class="form-control" id="clinic_name" aria-describedby="Clinic_NameHelp" placeholder="Clinic Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="appointment_date_time">Appointment Date Time</label>
+                            <input type="date" class="form-control" id="appointment_date_time" aria-describedby="Appointment_date_time" placeholder="Appointment Date Time">
+                        </div>
 
-                    <div class="form-group" id="result">
+                        <div class="form-group" id="result">
 
 
-                    </div>
-                    <button type="button" class="btn btn-primary" onclick="addnewpatient()">Add New Patient</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="addnewpatient()">Add New Patient</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
+                </div>
             </div>
         </div>
     </div>
-</div>
- <! -- java script files that will help to link the front end and back end -->
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script>
-    var uri = 'api/tables';
-    //Java script main function so JS start from here
-    $(document).ready(function () {
-        $.getJSON(uri)
-            .done(function (data) {
-                $("#PatientsTemplate").tmpl(data).appendTo("#allPatient");
-            });
-    });
-    // function to get all patient data and show on web page
-    function getallPatient() {
-        $.getJSON(uri)
-            .done(function (data) {
-                $("#allPatient").text("");
-                $("#PatientsTemplate").tmpl(data).appendTo("#allPatient");
-            });
-    }
-        // function to add data for new patient
-        function addnewpatient() {
-            var _doctor_Name = $('#doctor_Name').val();
-            var _patient_Name = $('#patient_Name').val();
-            var _clinic_name = $('#clinic_name').val();
-            var _appointment_date_time = Date.parse($('#appointment_date_time').val());
-
-            var Appointment = {
-                doctor_Name: _doctor_Name,
-                patient_Name: _patient_Name,
-                clinic_name: _clinic_name,
-                appointment_date_time: _appointment_date_time
-            };
-            $.ajax({
-                type: "POST",
-                url: uri,
-                data: JSON.stringify(Appointment),
-                contentType: "application/json; charset=utf-8"
-            }).done(function (response) {
-                $("#result").html("Success");
-                getallPatient();
-            }).fail(function (jqXHR, textStatus) {
-                $("#result").html("An error occured when Adding the bike record.");
-            });
-        }
-
-        </script>
-           <!--below mentioned code will create the template on the web page to display all patient-->
-            <script id="PatientsTemplate" type="text/x-jquery-tmpl">
-                <div class="col-lg-3" style="margin:10px;">
-                    <div class="card card text-white bg-dark border-warning mb-3" style="width: 18rem; padding:20px">
-                        <div class="card-body">
-                           <h5 class="card-title">Doctor Name: ${doctor_Name}</h5>
-                           <p class="card-text">Patient Name :  ${patient_Name}</p>
-                           <p class="card-text">Clinic name : ${clinic_name}</p>
-                           <p class="card-text">Appointment Date Time : ${appointment_date_time}</p>
-                        </div>
-                        <span>
-                            <button class="btn btn-primary" onclick="getbookForUpdate('${Id}')" data-toggle="modal" data-target="#UpdateBooks">Update</button>
-                            <a href="#" class="btn btn-danger" onclick="remove('$ Id}')">Delete</a>
-                        </span>
-                    </div>
+    <!-- below mentioned code will create the template to Update a new book -->
+    <div class="modal" tabindex="-1" role="dialog" id="UpdatePatients">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Patient Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-        </script>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="Update_id" aria-describedby="IdHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="Doctor_Name">Doctor Name</label>
+                            <input type="text" class="form-control" id="Update_doctor_Name" aria-describedby="Doctor_NameHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="Patient_Name">Patient Name</label>
+                            <input type="text" class="form-control" id="Update_patient_Name" aria-describedby="Patient_NameHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="Clinic_name">Clinic Name</label>
+                            <input type="text" class="form-control" id="Update_clinic_name" aria-describedby="Clinic_nameHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="Appointment_date_time">Appointment Date Time</label>
+                            <input type="text" class="form-control" id="Update_appointment_date_time" aria-describedby="Appointment_date_timeHelp">
+                        </div>
+                        
+                        <div class="form-group" id="update_result">
+
+
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="updatePatient()">Update</button>
+                    </form>
+                </div>
+                <! -- java script files that will help to link the front end and back end -->
+                <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+                <script src="https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                <script>
+                    var uri = 'api/tables';
+                    //Java script main function so JS start from here
+                    $(document).ready(function () {
+                        $.getJSON(uri)
+                            .done(function (data) {
+                                $("#PatientsTemplate").tmpl(data).appendTo("#allPatient");
+                            });
+                    });
+                    // function to get all patient data and show on web page
+                    function getallPatient() {
+                        $.getJSON(uri)
+                            .done(function (data) {
+                                $("#allPatient").text("");
+                                $("#PatientsTemplate").tmpl(data).appendTo("#allPatient");
+                            });
+                    }
+                    // function to add data for new patient
+                    function addnewpatient() {
+                        var _doctor_Name = $('#doctor_Name').val();
+                        var _patient_Name = $('#patient_Name').val();
+                        var _clinic_name = $('#clinic_name').val();
+                        var dateOut = $('#appointment_date_time').val().split("/");
+                        var _appointment_date_time = new Date(dateOut[2] + "-" + dateOut[1] + "-" + dateOut[0]);
+                        var Appointment = {
+                            doctor_Name: _doctor_Name,
+                            patient_Name: _patient_Name,
+                            clinic_name: _clinic_name,
+                            appointment_date_time: _appointment_date_time
+                        };
+                        $.ajax({
+                            type: "POST",
+                            url: uri,
+                            data: JSON.stringify(Appointment),
+                            contentType: "application/json; charset=utf-8"
+                        }).done(function (response) {
+                            $("#result").html("Success");
+                            getallPatient();
+                        }).fail(function (jqXHR, textStatus) {
+                            $("#result").html("your data is not added.");
+                        });
+                    }
+                    //funtion to delete a particular patient based on id//
+                    function remove(id) {
+                        var yes = confirm("Are you sure you want to delete this patient?");
+                        if (yes) {
+                            $.ajax({
+                                type: "DELETE",
+                                url: uri + "/" + id,
+                            }).done(function (response) {
+                                $("#result").html("patient data is deleted successfully");
+                                getallPatient();
+
+                            });
+                        }
+                    }
+                    // funtion to fill the data into update template
+                    function getPatientForUpdate(id) {
+                        $.ajax({
+                            type: "GET",
+                            url: uri + "/" + id,
+                            contentType: "application/json"
+                        }).done(function (response) {
+                            $('#Update_id').val(response.id);
+                            $('#Update_doctor_Name').val(response.doctor_Name);
+                            $('#Update_patient_Name').val(response.patient_Name);
+                            $('#Update_clinic_name').val(response.clinic_name);
+                            $('#Update_appointment_date_time').val(response.appointment_date_time);
+                           
+                        });
+                    }
+                    // function to update data of the student
+                    function updatePatient() {
+                        var _doctor_Name = $('#Update_doctor_Name').val();
+                        var _patient_Name = $('#Update_patient_Name').val();
+                        var _clinic_name = $('#Update_clinic_name').val();
+                        var _appointment_date_time = $('#Update_appointment_date_time').val();
+                       
+                        var PatientUpdate = {
+                            id: parseInt($('#Update_id').val()),
+                            doctor_Name: _doctor_Name,
+                            patient_Name: _patient_Name,
+                            clinic_name: _clinic_name,
+                            appointment_date_time: _appointment_date_time,
+                            
+                        };
+                        $.ajax({
+                            type: "PUT",
+                            url: uri + "/" + $('#Update_id').val(),
+                            data: JSON.stringify(PatientUpdate),
+                            contentType: "application/json; charset=utf-8"
+                        }).done(function (response) {
+                            $("#update_result").html("Record is updated Successfully");
+                            getAllStudents();
+                        }).fail(function (jqXHR, textStatus) {
+                            $("#update_result").html("An error occured when updating patientn record.");
+                        });
+                    }
+
+
+
+                </script>
+                <!--below mentioned code will create the template on the web page to display all patient-->
+                <script id="PatientsTemplate" type="text/x-jquery-tmpl">
+                    <div class="col-lg-3" style="margin:10px;">
+                        <div class="card card text-white bg-dark border-warning mb-3" style="width: 18rem; padding:20px">
+                            <div class="card-body">
+                                <h5 class="card-title">Doctor Name: ${doctor_Name}</h5>
+                                <p class="card-text">Patient Name :  ${patient_Name}</p>
+                                <p class="card-text">Clinic Name : ${clinic_name}</p>
+                                <p class="card-text">Appointment Date Time : ${appointment_date_time}</p>
+                            </div>
+                            <span>
+                                <button class="btn btn-primary" onclick="getPatientForUpdate('${id}')" data-toggle="modal" data-target="#UpdatePatients">Update</button>
+                                <a href="#" class="btn btn-danger" onclick="remove('${id}')">Delete</a>
+                            </span>
+                        </div>
+                    </div>
+                </script>
 
 </body>
 </html>
