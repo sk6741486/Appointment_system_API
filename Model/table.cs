@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Appointment_system_API.model
 {
+    //code for display the data//
     public class table
     {
         public int Id { get; set; }
